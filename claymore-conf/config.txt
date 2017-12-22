@@ -1,17 +1,7 @@
 # WARNING! Remove "#" characters to enable lines, with "#" they are disabled and will be ignored by miner! Check README for details.
 # WARNING! Miner loads options from this file only if there are not any options in the command line!
 
-#-epool $EPOOL1
-#-ewal $EWALL
-#-epsw x
+-epsw x
 -dcoin lbc
-#-dpool $DPOOL
-#-dwal $DWALL
-#-dpsw x
+-dpsw x
 -dcri 12
--mport $MPORT
-
-#-esm 1
-#-mode 0
-#-tt 70
-#-asm 0

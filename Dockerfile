@@ -14,8 +14,11 @@ ENV EWALL="${ETHACCT}.${WORKER}"
 
 ENV DWORKER="myminer"
 ENV DPOOL="stratum+tcp://lbry.suprnova.cc:6256"
-ENV DWALL="cultclassik.${DWORKER}"
+ENV DACCT="cultclassik"
+ENV DWALL="${DACCT}.${DWORKER}"
 ENV MPORT="3333"
+
+ENV CMREL="https://s3-us-west-1.amazonaws.com/mastermine/minebox/claymore_Ethereum%2BDecred_Siacoin_Lbry_Pascal_gpu_v10.2_LINUX.tar.gz"
 
 ENV GPU_FORCE_64BIT_PTR=0
 ENV GPU_MAX_HEAP_SIZE=100
@@ -30,10 +33,18 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     rm -rf /var/lib/apt/lists/*
 
 RUN mkdir /claymore
-ADD claymore-bin/* /claymore/
-ADD claymore-conf/* /claymore/
+WORKDIR /claymore
+
+RUN wget --no-check-certificate $CMREL &&\
+    ls -la &&\
+    tar -xvf ./*.tar.gz -C /claymore --strip-components 1 &&\
+    rm *.tar.gz
+
 RUN chmod +x /claymore/ethdcrminer64
+RUN touch /claymore/go-mining.sh
+ADD go-mining.sh /claymore/
+RUN chmod +x /claymore/go-mining.sh
 
 EXPOSE 3333/tcp
 
-CMD [ "/claymore/ethdcrminer64"]
+CMD [ "/claymore/go-mining.sh" ]

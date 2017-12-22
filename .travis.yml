@@ -8,12 +8,12 @@ services:
   - docker
 
 script:
-  - TAG="0.12.0_nvd2"
-  - CONT_NAME="ethminer-nv"
+  - TAG="10.2-eth-lbc"
+  - CONT_NAME="claymore-nv"
   - docker login -u="$DOCKER_USER" -p="$DOCKER_PASS"
-  - docker build -t cultclassik/ethminer-nv .
+  - docker build -t cultclassik/claymore-nv .
   - docker images
   - docker tag cultclassik/$CONT_NAME cultclassik/$CONT_NAME:latest
   - docker tag cultclassik/$CONT_NAME cultclassik/$CONT_NAME:$TAG
-  - docker push cultclassik/ethminer-nv:$TAG
-  - docker push cultclassik/ethminer-nv
+  - docker push cultclassik/claymore-nv:$TAG
+  - docker push cultclassik/claymore-nv

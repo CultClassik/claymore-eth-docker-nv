@@ -42,7 +42,7 @@ RUN wget --no-check-certificate $CMREL &&\
 
 RUN chmod +x /claymore/ethdcrminer64
 RUN touch /claymore/go-mining.sh
-ADD go-mining.sh /claymore/
+ADD script/go-mining.sh /claymore/
 RUN chmod +x /claymore/go-mining.sh
 
 EXPOSE 3333/tcp

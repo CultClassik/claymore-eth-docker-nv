@@ -1,4 +1,5 @@
 #!/bin/bash
+
 cd /claymore
 
 echo "POOL: ${EPOOL1}, WALLET: ${EWALL}.${EWORKER}, PSW: x, WORKER: ${EWORKER}, ESM: 0, ALLPOOLS: 1" > epools.txt

@@ -7,17 +7,18 @@ MAINTAINER Chris Diehl <cultclassik@gmail.com>
 ENV NVIDIA_VISIBLE_DEVICES=0
 
 #ENV EWORKER="myminer"
-ENV EPOOL1="us2.ethermine.org:4444"
-ENV EPOOL2="us1.ethermine.org:4444"
+ENV EPOOL1=us2.ethermine.org:4444
+ENV EPOOL2=us1.ethermine.org:4444
 #ENV ETHACCT="0x96ae82e89ff22b3eff481e2499948c562354cb23"
 #ENV EWALL="${ETHACCT}.${EWORKER}"
-ENV EWALL="eth_acct.eth_worker"
-
+ENV EWALL=eth_acct.eth_worker
+ENV ETHI = 8
 #ENV DWORKER="myminer"
-ENV DPOOL="stratum+tcp://lbry.suprnova.cc:6256"
+ENV DPOOL=stratum+tcp://lbry.suprnova.cc:6256
 #ENV DACCT="cultclassik"
 #ENV DWALL="${DACCT}.${DWORKER}"
-ENV DWALL="lbc_acct.lbc_worker"
+ENV DWALL=lbc_acct.lbc_worker
+ENV DCRI=12
 
 ENV CMREL="https://s3-us-west-1.amazonaws.com/mastermine/minebox/claymore_Ethereum%2BDecred_Siacoin_Lbry_Pascal_gpu_v10.2_LINUX.tar.gz"
 
@@ -48,4 +49,4 @@ RUN chmod +x /claymore/go-mining.sh
 
 EXPOSE 3333/tcp
 
-CMD [ "/claymore/go-mining.sh" ]
+ENTRYPOINT [ "/claymore/go-mining.sh" ]

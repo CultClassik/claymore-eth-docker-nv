@@ -11,9 +11,9 @@ script:
   - TAG="10.2-eth-lbc"
   - CONT_NAME="claymore-nv"
   - docker login -u="$DOCKER_USER" -p="$DOCKER_PASS"
-  - docker build -t cultclassik/claymore-nv .
+  - docker build -t cultclassik/$CONT_NAME .
   - docker images
   - docker tag cultclassik/$CONT_NAME cultclassik/$CONT_NAME:latest
   - docker tag cultclassik/$CONT_NAME cultclassik/$CONT_NAME:$TAG
-  - docker push cultclassik/claymore-nv:$TAG
-  - docker push cultclassik/claymore-nv
+  - docker push cultclassik/$CONT_NAME:$TAG
+  - docker push cultclassik/$CONT_NAME

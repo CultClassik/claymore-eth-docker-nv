@@ -49,4 +49,4 @@ RUN chmod +x /claymore/go-mining.sh
 
 EXPOSE 3333/tcp
 
-ENTRYPOINT [ "/claymore/go-mining.sh" ]
+ENTRYPOINT /claymore/go-mining.sh

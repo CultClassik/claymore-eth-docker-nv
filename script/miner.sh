@@ -4,7 +4,7 @@ cd /claymore
 
 echo "POOL: ${EPOOL1}, WALLET: ${EWALL}, PSW: x, WORKER: anonymous, ESM: 0, ALLPOOLS: 1" > epools.txt
 echo "POOL: ${EPOOL2}, WALLET: ${EWALL}, PSW: x, WORKER: anonymous, ESM: 0, ALLPOOLS: 1" >> epools.txt
-echo "POOL: ${DPOOL}, WALLET: ${DWALL}, PSW: x, WORKER: anonymous, ESM: 0, ALLPOOLS: 0" > dpools.txt
+echo "POOL: ${DPOOL}, WALLET: ${DWALL}, PSW: x, WORKER: anonymous, ESM: 0, ALLPOOLS: 1" > dpools.txt
 
 #echo "-epool ${EPOOL1}" > config.txt
 #echo "-ewal ${EWALL}" >> config.txt

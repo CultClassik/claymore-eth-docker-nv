@@ -8,8 +8,8 @@ services:
   - docker
 
 script:
-  - TAG="10.2-eth-lbc"
-  - CONT_NAME="claymore-nv"
+  - TAG="10.2-nv"
+  - CONT_NAME="claymore-eth"
   - docker login -u="$DOCKER_USER" -p="$DOCKER_PASS"
   - docker build -t cultclassik/$CONT_NAME:latest .
   - docker images

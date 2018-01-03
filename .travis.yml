@@ -13,6 +13,6 @@ script:
   - docker login -u="$DOCKER_USER" -p="$DOCKER_PASS"
   - docker build -t cultclassik/$CONT_NAME:latest-nv ./build
   - docker images
-  - docker tag cultclassik/$CONT_NAME cultclassik/$CONT_NAME:$TAG
+  - docker tag cultclassik/$CONT_NAME:latest-nv cultclassik/$CONT_NAME:$TAG
   - docker push cultclassik/$CONT_NAME:$TAG
-  - docker push cultclassik/$CONT_NAME
+  - docker push cultclassik/$CONT_NAME:latest-nv

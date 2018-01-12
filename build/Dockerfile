@@ -5,15 +5,16 @@ LABEL maintainer="Chris Diehl <cultclassik@gmail.com>"
 
 ENV NVIDIA_VISIBLE_DEVICES=0
 
-ENV EPOOL1="us2.ethermine.org:4444"
-ENV EPOOL2="us1.ethermine.org:4444"
-ENV EWALL="eth_acct.eth_worker"
+ENV EPOOL1=""
+ENV EPOOL2=""
+ENV EWORKER=""
+ENV EWALL=""
 ENV ETHI=8
-ENV DPOOL="stratum+tcp://lbry.suprnova.cc:6256"
-ENV DWALL="lbc_acct.lbc_worker"
+ENV DPOOL=""
+ENV DWALL=""
 ENV DCRI=8
 
-ENV CMREL="https://s3-us-west-1.amazonaws.com/mastermine/minebox/claymore_Ethereum%2BDecred_Siacoin_Lbry_Pascal_gpu_v10.2_LINUX.tar.gz"
+ENV CMREL="https://s3-us-west-1.amazonaws.com/mastermine/minebox/claymore_Ethereum%2BDecred_Siacoin_Lbry_Pascal_gpu_v10.3_+LINUX.tar.gz"
 
 ENV GPU_FORCE_64BIT_PTR=0
 ENV GPU_MAX_HEAP_SIZE=100
@@ -32,7 +33,6 @@ WORKDIR /claymore
 ADD script/miner.sh /claymore/
 
 RUN wget --no-check-certificate $CMREL &&\
-    ls -la &&\
     tar -xvf ./*.tar.gz -C /claymore --strip-components 1 &&\
     rm *.tar.gz && \
     chmod +x /claymore/ethdcrminer64 &&\
